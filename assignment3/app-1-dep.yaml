@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: app-1-dep
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: app-1
@@ -16,16 +16,6 @@ spec:
         - name: app-1
           image: ghcr.io/denoslab/ensf400-sample-app:v1
           ports:
-            - containerPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: app-1-svc
-spec:
-  selector:
-    app: app-1
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+            - containerPort: 3000
+
+
